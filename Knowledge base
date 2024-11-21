@@ -1,0 +1,12 @@
+# Simple rule-based corona diagnosis using Python
+def is_corona_patient(symptoms):
+    corona_symptoms = {"fever", "cough", "fatigue", "loss_of_taste", "difficulty_breathing"}
+    common_symptoms = symptoms.intersection(corona_symptoms)
+    if len(common_symptoms) >= 3:  # Rule: 3+ symptoms indicate potential corona case
+        return True, common_symptoms
+    return False, common_symptoms
+
+# Example Usage
+patient_symptoms = {"fever", "cough", "loss_of_taste"}
+result, matched = is_corona_patient(set(patient_symptoms))
+print(f"Corona Patient: {result}, Symptoms matched: {matched}")
